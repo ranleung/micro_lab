@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # end
 
   def new
-  	id = params[:id]
+  	id = params[:user_id]
   	@user =User.find(id)
   	@posts = Post.new
   end
