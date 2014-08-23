@@ -1,11 +1,15 @@
 
 
 <div class="container">
-	<%= form_for :user do |f| %>
-		<%= f.text_field :first_name %><br>
-		<%= f.text_field :last_name %><br>
-		<%= f.text_field :email %><br>
-		<%= f.text_field :image_url %><br>
+	<h1>Create a New User</h1>
+
+	<%= form_for @user do |f| %>
+		<%= f.text_field :first_name, placeholder: "firstname" %><br>
+		<%= f.text_field :last_name, placeholder: "lastname" %><br>
+		<%= f.text_field :email, placeholder: "email" %><br>
+		<%= f.text_field :image_url, placeholder: "img url" %><br>
 		<%= f.submit "Save" %>
 	<% end %>
+
+
 </div>
