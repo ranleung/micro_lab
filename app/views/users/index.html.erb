@@ -1,0 +1,16 @@
+<div class="container">
+
+	<% @users.each do |user| %>
+		
+			<p>Title: 
+			<%= user.posts.map(&:title).join(", ") %></p>
+			<p>User: 
+			<%= user.first_name %></p><br>
+
+		
+	<% end %>
+
+
+	
+
+</div>
