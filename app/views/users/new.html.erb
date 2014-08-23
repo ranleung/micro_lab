@@ -1,11 +1,20 @@
 
 
 <div class="container">
-	<%= form_for :user do |f| %>
-		<%= f.text_field :first_name %><br>
-		<%= f.text_field :last_name %><br>
-		<%= f.text_field :email %><br>
-		<%= f.text_field :image_url %><br>
-		<%= f.submit "Save" %>
-	<% end %>
+	<div class="row">
+
+		<%= form_for @user do |f| %>
+			<p>First Name: 
+			<%= f.text_field :first_name %></p><br>
+			<p>Last Name: 
+			<%= f.text_field :last_name %></p><br>
+			<p>Email: 
+			<%= f.text_field :email %></p><br>
+			<p>Image Url: 
+			<%= f.text_field :image_url %></p><br>
+			<%= f.submit "Save"%>
+		<% end %>
+
+
+	</div>
 </div>
