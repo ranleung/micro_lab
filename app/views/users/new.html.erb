@@ -1,15 +1,25 @@
 
 
 <div class="container">
+
 	<h1>Create a New User</h1>
 
-	<%= form_for @user do |f| %>
-		<%= f.text_field :first_name, placeholder: "firstname" %><br>
-		<%= f.text_field :last_name, placeholder: "lastname" %><br>
-		<%= f.text_field :email, placeholder: "email" %><br>
-		<%= f.text_field :image_url, placeholder: "img url" %><br>
-		<%= f.submit "Save" %>
-	<% end %>
+	<div class="row">
+
+		<%= form_for @user do |f| %>
+			<p>First Name: 
+			<%= f.text_field :first_name, placeholder: "firstname" %></p><br>
+			<p>Last Name: 
+			<%= f.text_field :last_name, placeholder: "lastname" %></p><br>
+			<p>Email: 
+			<%= f.text_field :email, placeholder: "email" %></p><br>
+			<p>Image Url: 
+			<%= f.text_field :image_url, placeholder: "img url" %></p><br>
+			<%= f.submit "Save"%>
+		<% end %>
 
 
+	</div>
 </div>
+
+
