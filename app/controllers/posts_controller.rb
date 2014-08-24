@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @user = User.find(user_id)
     post_id = params[:id]
     @post = @user.posts.find(params[:id])
+    @comments = @posts.comments.all
   end
 
 
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
     # Updating Tag currently not working
     # update_tag = params.require(:tag).permit(:name)
     # @post.tags.update_attributes(:name => update_tag[:name])
-    
+
     render :show
   end
 
@@ -82,7 +83,7 @@ class PostsController < ApplicationController
 
   def find_post_id
     post_id = params[:id]
-    @post = Post.find_by_id(post_id)    
+    @post = Post.find_by_id(post_id)
   end
 
 end

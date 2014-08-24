@@ -1,0 +1,18 @@
+<div class="container">
+
+	<h1>About Me/Contact:</h1>
+
+
+
+
+
+		<% if @pages != nil %>
+	<% @pages.each do |page| %>
+		<a href="/users/<%= @user.id %>/pages/<%= page.id %>"> <%= page.name %> </a><br>
+		<% end %>
+	<% end %>
+
+
+
+
+</div>

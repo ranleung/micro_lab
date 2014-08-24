@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
 
+	def index
+		find_user_id
+		@pages=@user.pages
+
+	end
+
 	def show
     find_user_id
     find_page_id
