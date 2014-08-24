@@ -4,9 +4,10 @@
 	<p>Find me in app/views/posts/index.html.erb</p>
 
 
+	<% if @posts != nil %>
 	<% @posts.each do |post| %>
 		<a href="/users/<%= @user.id %>/posts/<%= post.id %>"> <%= post.title %> </a><br>
-
+		<% end %>
 	<% end %>
 
 

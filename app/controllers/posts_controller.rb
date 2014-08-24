@@ -12,8 +12,6 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
   end
 
-
-
   def new
   	find_user_id
   	@posts = @user.posts.new
@@ -63,7 +61,7 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
     @post.destroy
 
-    redirect_to '/'
+    redirect_to action: "index"
   end
 
 
