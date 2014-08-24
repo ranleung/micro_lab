@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+
 	# associations 
 	  belongs_to :user
 	  has_many :comments
@@ -9,6 +10,7 @@ class Post < ActiveRecord::Base
 			:length => {:maximum=>25}
 		validates :body, presence: true,
 			:length => {:maximum=>250}
+
 end
 
 

@@ -7,17 +7,18 @@
 
 	<div class="row">
 
+	<%= form_for [@user, @posts] do |f| %>
+		<%= f.text_field :title, placeholder: "Title" %><br>
+		
+		<%= text_field_tag :tags, nil, placeholder: "Enter tags" %><br>
 
-		<%=form_for @posts do |f| %>
-			<p>Title:
-				<%=f.text_field :title, placeholder: "Title" %> 
-			</p><br>
-			<p>
-				<%=f.text_area :body, placeholder: "Description"%> 
-			</p></br>
-				<%=f.submit "Save"%>
-		<% end%>
+		<%= f.text_area :body, placeholder: "Body" %><br>
 
+		<%= f.submit "Save" %>
+
+	<% end %>
+
+		
 
 	</div> <!-- Row close -->
 

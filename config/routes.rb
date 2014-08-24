@@ -11,8 +11,11 @@ Rails.application.routes.draw do
     resources :pages
   end
 
+
   resources :posts do
   	resources :comments
   end 
+
+
 
 end
