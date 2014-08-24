@@ -22,9 +22,8 @@ class PostsController < ApplicationController
 
   def create
     find_user_id
-<<<<<<< HEAD
 
-=======
+
     new_post = params[:post].permit(:title, :body)
     @post = find_user_id.posts.create(new_post)
 
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
     end
 
     redirect_to find_user_id
->>>>>>> randall
+
   end
 
 
