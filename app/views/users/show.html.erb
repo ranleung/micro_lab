@@ -9,6 +9,10 @@
 				<h3><%= @user.first_name %></h3>
 				<p><%= @user.last_name %></p>
 				<p><%= @user.email%></p>
+				<p><%= button_to 'about/contact',user_pages_path(@user), method: :get %> </p>
+				<p><%= button_to 'update',edit_user_path, method: :get %> </p>
+		<p><%= button_to 'delete', @users, method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+
 		</div>
 
 		<div class="row">

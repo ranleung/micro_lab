@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+
 	def index
 		find_post_id
 		@comments = @post.comments.all
@@ -13,9 +13,9 @@ class CommentsController < ApplicationController
   def create
   	find_post_id
   	new_comment = params.require(:comment).permit(:content)
-    @comment = @post.comments.create(new_comment)
-
-    redirect_to '/posts/+ #{@post}'
+    @comment = Comment.create(new_comment)
+    @post.comments << @comment
+    redirect_to '/'
   end
 
   def show
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   	find_comment_id
   	@comment.destroy
   	find_post_id
-  	redirect_to 'posts/@post'  	
+  	redirect_to 'posts/@post'
   end
 
 
@@ -33,12 +33,12 @@ class CommentsController < ApplicationController
 
   def find_post_id
   	post_id = params[:post_id]
-  	@post = Post.find(post_id) 
+  	@post = Post.find(post_id)
   end
 
   def find_comment_id
   	comment_id = params[:id]
-  	@comment = Comment.find(comment_id)  	
+  	@comment = Comment.find(comment_id)
   end
 
 
