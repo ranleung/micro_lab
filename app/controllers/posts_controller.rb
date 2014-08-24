@@ -1,7 +1,17 @@
 class PostsController < ApplicationController
-  # def index
-  # 	@posts=Post.all
-  # end
+  def index
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+    @posts = @user.posts
+  end
+
+  def show
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+    post_id = params[:id]
+    @posts = @user.posts.find(params[:id])
+  end
+
 
 
   def new
@@ -29,16 +39,28 @@ class PostsController < ApplicationController
 
 
   def edit
-    find_user_id
-    find_post_id
+   find_post_id
+   find_user_id
   end
 
   def update
-    
+    find_user_id
+    find_post_id
+
+    new_post = params.require(:post).permit(:title, :body)
+    @post.update_attributes(new_post)
+
+    new_tag = params.require(:tag).permit(:name)
+    @post.tags << new_tag
+
+    redirect_to '/'
   end
 
 
   def destroy
+    find_user_id
+    @post.destroy
+    redirect_to '/'
   end
 
 

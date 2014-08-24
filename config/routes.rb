@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'users#index'
+  match '/users/:user_id/posts/:id', to: 'posts#update', via: :post
 
   resources :users do
     resources :posts do
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
     end
     resources :pages
   end
+
 
 end
