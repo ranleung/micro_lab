@@ -39,21 +39,22 @@ class PostsController < ApplicationController
 
 
   def edit
-   find_post_id
-   find_user_id
+    @user = User.find_by_id(params[:user_id])
+    @post = @user.posts.find_by_id(params[:id])
   end
 
   def update
     find_user_id
     find_post_id
 
-    new_post = params.require(:post).permit(:title, :body)
-    @post.update_attributes(new_post)
+    update_post = params.require(:post).permit(:title, :body)
+    @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
 
-    new_tag = params.require(:tag).permit(:name)
-    @post.tags << new_tag
-
-    redirect_to '/'
+    # Updating Tag currently not working
+    # update_tag = params.require(:tag).permit(:name)
+    # @post.tags.update_attributes(:name => update_tag[:name])
+    
+    render :show
   end
 
 
@@ -70,12 +71,12 @@ class PostsController < ApplicationController
 
   def find_user_id
     user_id = params[:user_id]
-    @user = User.find(user_id)
+    @user = User.find_by_id(user_id)
   end
 
   def find_post_id
     post_id = params[:id]
-    @post = Post.find(post_id)    
+    @post = Post.find_by_id(post_id)    
   end
 
 end
