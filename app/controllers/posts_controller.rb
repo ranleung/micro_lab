@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @posts = @user.posts
   end
 
+
   def show
     user_id = params[:user_id]
     @user = User.find(user_id)
@@ -12,10 +13,12 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
   end
 
+
   def new
   	find_user_id
   	@posts = @user.posts.new
   end
+
 
   def create
     find_user_id
@@ -40,6 +43,7 @@ class PostsController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find_by_id(params[:id])
   end
+
 
   def update
     find_user_id
