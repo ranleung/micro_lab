@@ -1,0 +1,17 @@
+<h1>Comments#new</h1>
+<p>Find me in app/views/comments/new.html.erb</p>
+
+
+<div class="container">
+	<h1>Add Comment</h1>
+	<div class="row">
+		<%= form_for [@post, @comment] do |f| %>
+			<%= f.text_field :content, placeholder: "content" %><br>
+			<%= f.submit "Save" %>
+		<%= end %>
+	</div>
+
+</div>
+
+
+

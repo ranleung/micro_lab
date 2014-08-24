@@ -1,3 +1,14 @@
 class Page < ActiveRecord::Base
-  belongs_to :user
+	# associations
+	  belongs_to :user
+	# validations
+		
 end
+
+
+
+# verify name
+# inclusion must be about or contact
+# presence true
+# verify content
+# presence

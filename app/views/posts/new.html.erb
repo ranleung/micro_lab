@@ -1,11 +1,12 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
-
 <div class="container">
+	<h1>Posts#new</h1>
+	<p>Find me in app/views/posts/new.html.erb</p>
+
 
 	<h1>Create a New Post</h1>
 
 	<div class="row">
+
 
 		<%=form_for @posts do |f| %>
 			<p>Title:
@@ -17,5 +18,8 @@
 				<%=f.submit "Save"%>
 		<% end%>
 
-</div>
-</div>
+
+	</div> <!-- Row close -->
+
+
+</div>  <!-- Container close -->
