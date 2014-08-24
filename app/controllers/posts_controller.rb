@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     user_id = params[:user_id]
     @user = User.find(user_id)
     post_id = params[:id]
-    @posts = @user.posts.find(params[:id])
+    @post = @user.posts.find(params[:id])
   end
 
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
         tag = Tag.create(:name => tag_str)
       end
       # Need to fix this part?  A tag belongs to many Posts?  Still working
-      # new_post.tags << tag
+      # new_post.tags << new_tag
     end
 
     redirect_to find_user_id
@@ -58,8 +58,9 @@ class PostsController < ApplicationController
 
 
   def destroy
-    find_user_id
-    @post.destroy
+    post_id = params[:id]
+    post = Post.find(post_id)
+    post.destroy
     redirect_to '/'
   end
 
