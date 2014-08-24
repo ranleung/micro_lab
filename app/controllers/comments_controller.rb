@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
   
+	def index
+		find_post_id
+		@comments = @post.comments.all
+	end
+
   def new
   	find_post_id
   	@comments = @post.comments.new
@@ -7,6 +12,10 @@ class CommentsController < ApplicationController
 
   def create
   	find_post_id
+  	new_comment = params.require(:comment).permit(:content)
+    @comment = @post.comments.create(new_comment)
+
+    redirect_to '/posts/+ #{@post}'
   end
 
   def show

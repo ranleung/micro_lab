@@ -1,6 +1,18 @@
 
 
 
-Comments Index Page Purely for Testing 
+Comments Index Page 
 
-These comments are to be displayed in `post` show page 
+<div class="container">
+	
+	<h3>Comments</h3>
+		<div class="row">
+			<% @comments.each do |comment| %>
+				<div>
+					<p> <%= comment.content %> </p>
+		
+				</div>
+			<% end %>
+		</div>
+
+</div>
