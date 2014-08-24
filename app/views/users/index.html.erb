@@ -2,18 +2,18 @@
 
 	<button><a href="users/new">Create New User</a></button>
 
+
 	<% @users.each do |user| %>
-		
-			<p>Title: 
+
+			<p>Title:
 			<%= user.posts.map(&:title).join(", ") %></p>
-			<p>User: 
+			<p>User:
 			<%= user.first_name %></p><br>
 
 
-		
 	<% end %>
 
 
-	
+
 
 </div>

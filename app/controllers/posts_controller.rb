@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def create
     find_user_id
-     
+
   end
 
 
