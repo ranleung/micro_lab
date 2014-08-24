@@ -13,7 +13,7 @@
 
 		<p>
 			<% post.tags.each do |tag| %>
-				<%= tag.name %>	
+				 <a href="/users/<%= post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>	
 			<% end %>	
 		</p>
 
