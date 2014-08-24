@@ -29,13 +29,17 @@ class PostsController < ApplicationController
 
 
   def edit
+    find_user_id
+    find_post_id
+  end
+
+  def update
+    
   end
 
 
   def destroy
   end
-
-
 
 
 
@@ -46,5 +50,9 @@ class PostsController < ApplicationController
     @user = User.find(user_id)
   end
 
+  def find_post_id
+    post_id = params[:id]
+    @post = Post.find(post_id)    
+  end
 
 end
