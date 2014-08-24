@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  # def index
-  # 	@posts=Post.all
-  # end
+  def index
+  	@posts=Post.all
+  end
 
 
   def new
@@ -14,6 +14,10 @@ class PostsController < ApplicationController
      
   end
 
+  def show
+	  find_post_id
+  	@comments = @post.comments.all
+  end
 
   def edit
   end
@@ -22,10 +26,6 @@ class PostsController < ApplicationController
   def destroy
   end
 
-
-
-
-
   private
 
   def find_user_id
@@ -33,5 +33,9 @@ class PostsController < ApplicationController
     @user = User.find(user_id)
   end
 
+  def find_post_id
+  	post_id = params[:id]
+  	@post = Post.find(post_id) 
+  end
 
 end
