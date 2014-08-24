@@ -1,2 +1,16 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+
+	<h1>Posts#index</h1>
+	<p>Find me in app/views/posts/index.html.erb</p>
+
+
+	<% if @posts != nil %>
+	<% @posts.each do |post| %>
+		<a href="/users/<%= @user.id %>/posts/<%= post.id %>"> <%= post.title %> </a><br>
+		<% end %>
+	<% end %>
+
+	<a href="/users/<%= @user.id %>/posts/new" class="btn btn-primary">New Post</a>
+	<a href="/" class="btn btn-primary">Home</a>
+
+</div>  <!-- container close -->
