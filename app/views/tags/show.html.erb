@@ -1,0 +1,32 @@
+<div class="container">
+	<h1>Tags#show</h1>
+	<p>Find me in app/views/tags/show.html.erb</p>
+	
+	<p>the show will display all the posts associated to a tag for a `user</p>
+--------------------------------------------------
+
+
+	<% @tags.posts.each do |post| %>
+		<h2><a href="/users/<%=post.user.id %>/posts/<%= post.id %>"><%= post.title %></a> </h2>
+
+		<p>Posted By: <a href="/users/<%= post.user.id %>"><%= post.user.first_name %> <%= post.user.last_name %> </a></p>
+
+		<p>
+			<% post.tags.each do |tag| %>
+				<%= tag.name %>	
+			<% end %>	
+		</p>
+
+		<p><%= post.body %></p>
+
+		<p>Created On:  <%= post.created_at.to_formatted_s(:long) %></p>
+
+	<% end %>
+
+
+
+
+
+
+ 
+</div>
