@@ -57,14 +57,15 @@ class PostsController < ApplicationController
       update_post = params.require(:post).permit(:title, :body)
       @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
       
-      new_tag = params.require(:post).permit(:tags[:name]).split(",").map(&:strip).map(&:downcase)
-      new_tag.each do |tag_str|
-        tag = Tag.find_or_create_by(name: tag_str)
-        @post.tags << tag
-      end
+      # new_tag = params.require(:post).permit(:tags[:name]).to.a.split(",").map(&:strip).map(&:downcase)
+      # new_tag.each do |tag_str|
+      #   tag = Tag.find_or_create_by(name: tag_str)
+      #   @post.tags << tag
+      # end
     end
+
     
-    render :show
+    redirect_to action: "show"
   end
 
 
