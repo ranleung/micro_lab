@@ -15,16 +15,14 @@
 
 		</div>
 
-		<div class="row">
-			<h3>Posts</h3>
-				<p></p>
-		</div>
 
 
 
 
 		<!-- need to update hardcoded post#id -> posts/:id so that each post, you can add a comment; or add comment on each post show page-->
-		<button><a href="/posts/1/comments/new">Add comment</a></button>
+		<button><a href="/users/<%=@user.id%>/posts">Click here to view my Posts</a></button><br>
+
+		<a href="/">Go back to All Posts Page(site index)</a>
 
 
 	</div>
