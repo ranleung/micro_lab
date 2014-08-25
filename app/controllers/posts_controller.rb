@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @post = find_user_id.posts.new(new_post)
 
     new_tag = params[:tags].split(",").map(&:strip).map(&:downcase)
-    
+
     if @post.save
       new_tag.each do |tag_str|
         tag = Tag.find_or_create_by(name: tag_str)
@@ -53,18 +53,18 @@ class PostsController < ApplicationController
     find_user_id
     find_post_id
 
-    if @post 
+    if @post
       update_post = params.require(:post).permit(:title, :body)
       @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
-      
-      new_tag = params.require(:post).permit(:tags[:name]).split(",").map(&:strip).map(&:downcase)
-      new_tag.each do |tag_str|
-        tag = Tag.find_or_create_by(name: tag_str)
-        @post.tags << tag
-      end
+
+      # new_tag = params.require(:post).permit(:tags[:name]).split(",").map(&:strip).map(&:downcase)
+      # new_tag.each do |tag_str|
+      #   tag = Tag.find_or_create_by(name: tag_str)
+      #   @post.tags << tag
+      # end
     end
-    
-    render :show
+
+    redirect_to action: "show"
   end
 
 
