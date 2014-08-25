@@ -15,8 +15,3 @@
  *= require_self
  */
 
-#background{
-	background: url(http://blog.petspyjamas.com/uploads/2014/02/puppy-dog-eyes.jpg) no-repeat center center fixed;
-	height: 600px;
-	background-size: cover;
-}
