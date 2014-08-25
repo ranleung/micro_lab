@@ -8,7 +8,7 @@ class Tag < ActiveRecord::Base
 		:length => {:minimum => 1, :maximum => 10}
 
 		
-		# :format => {:with => /\A[a-z]+/}
+		# :format => 
 
 end
 

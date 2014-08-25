@@ -13,7 +13,7 @@
 
 		<p>
 			<% post.tags.each do |tag| %>
-				 <a href="/users/<%= post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>	
+				 <a href="/users/<%= post.user.id %>/tags/<%= tag.id %>">#<%= tag.name %></a>	
 			<% end %>	
 		</p>
 
@@ -23,7 +23,7 @@
 		<p>Created On:  <%= post.created_at.to_formatted_s(:long) %></p>
 
 		<% if post.comments.length > 0 %>
-      <p><a href="/users/<%= post.user.id %>/posts/<%= post[:id] %>">(<%= post.comments.length %>) Comments</a></p>
+      <p><a href="/users/<%= post.user.id %>/posts/<%= post.id %>">(<%= post.comments.length %>) Comments</a></p>
     <% end %>
 
 	<% end %>
