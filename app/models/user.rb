@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
 			:presence => true,
 			:uniqueness => true
 
-		validates_confirmation_of :email
-	  validates_presence_of :email_confirmation
 end
 
 
