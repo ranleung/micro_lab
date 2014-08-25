@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-	# associations 
+	# associations
 		has_many :pages
 		has_many :posts
-	# validations 
+	# validations
 		# validates :first_name, presence: true,
 		# validates :last_name, presence: true,
-		# validates :email, presence: true, 
+		# validates :email, presence: true,
 		# uniqueness => true
 end
 

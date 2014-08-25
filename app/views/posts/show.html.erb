@@ -4,13 +4,14 @@
 	<h1>Posts#show</h1>
 	<p>Find me in app/views/posts/show.html.erb</p>
 
-	
+
 
 	<h1><%= @post.title %></h1>
 	<p><%= @post.body %></p>
 
 	<a href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" class="btn btn-primary">Edit</a>
-	
+
+
 
 
 	<h2>Comments:</h2>
@@ -21,6 +22,7 @@
 				</div>
 			<% end %>
 		</div>
+
 
 <a href="/" class="btn btn-primary">Home</a>
 <a href="/users/<%= @user.id %>/posts" class="btn btn-primary">Back to All Posts</a>

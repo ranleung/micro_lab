@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+
 	def index
 		find_post_id
 		@comments = @post.comments.all
@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
     @user = @post.user_id
     # redirect_to '/users/1/posts/+ #{@post}'
     # redirect_to [@user, @post]
+
     redirect_to '/'
   end
 
@@ -29,7 +30,7 @@ class CommentsController < ApplicationController
   	find_comment_id
   	@comment.destroy
   	find_post_id
-  	redirect_to 'posts/@post'  	
+  	redirect_to 'posts/@post'
   end
 
 
@@ -37,12 +38,12 @@ class CommentsController < ApplicationController
 
   def find_post_id
   	post_id = params[:post_id]
-  	@post = Post.find(post_id) 
+  	@post = Post.find(post_id)
   end
 
   def find_comment_id
   	comment_id = params[:id]
-  	@comment = Comment.find(comment_id)  	
+  	@comment = Comment.find(comment_id)
   end
 
 
