@@ -7,9 +7,11 @@
 	<% @users.each do |user| %>
 
 			<p>Title:
-			<%= user.posts.map(&:title).join(", ") %></p>
+				<a href="/users/<%= user.id%>/posts"><%= user.posts.map(&:title).join(", ") %></a>
+			</p>
 			<p>User:
-			<%= user.first_name %></p><br>
+				<a href="/users/<%= user.id %>"><%= user.first_name %></a>
+			</p><br>
 
 
 	<% end %>
