@@ -24,23 +24,23 @@ class PostsController < ApplicationController
   def create
     find_user_id
 
-
     new_post = params[:post].permit(:title, :body)
-    @post = find_user_id.posts.create(new_post)
+    @post = find_user_id.posts.new(new_post)
 
     new_tag = params[:tags].split(",").map(&:strip).map(&:downcase)
-    new_tag.each do |tag_str|
-      tag = Tag.find_by_name(tag_str)
-      if tag == nil
-        tag = Tag.create(:name => tag_str)
-      end
-      # Need to fix this part?  A tag belongs to many Posts?  Still working
-      # new_post.tags << new_tag
+    
+    if @post.save
+      new_tag.each do |tag_str|
+        tag = Tag.find_or_create_by(name: tag_str)
+        @post.tags << tag
     end
-
-    redirect_to find_user_id
-
+      redirect_to [@user, @post]
+    else
+      render action: 'new'
+    end
   end
+
+    # redirect_to find_user_id
 
 
   def edit
@@ -53,6 +53,7 @@ class PostsController < ApplicationController
     find_user_id
     find_post_id
 
+<<<<<<< HEAD
     update_post = params.require(:post).permit(:title, :body)
     @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
 
@@ -60,6 +61,19 @@ class PostsController < ApplicationController
     # update_tag = params.require(:tag).permit(:name)
     # @post.tags.update_attributes(:name => update_tag[:name])
 
+=======
+    if @post 
+      update_post = params.require(:post).permit(:title, :body)
+      @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
+      
+      new_tag = params.require(:post).permit(:tags[:name]).split(",").map(&:strip).map(&:downcase)
+      new_tag.each do |tag_str|
+        tag = Tag.find_or_create_by(name: tag_str)
+        @post.tags << tag
+      end
+    end
+    
+>>>>>>> randall
     render :show
   end
 

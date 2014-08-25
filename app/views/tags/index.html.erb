@@ -1,0 +1,19 @@
+<div class="container">
+	<h1>Tags#index</h1>
+	<p>Find me in app/views/tags/index.html.erb</p>
+	
+------------------------------
+
+	<h1>All Tags</h1>
+
+	<% @tags.each do |tag| %>
+		<% if tag.posts.length > 0 %>
+      <p><a href="tags/<%= tag.id %>">#<%= tag.name %></a></p>
+    <% end %>
+	<% end %>
+
+
+
+
+
+</div>
