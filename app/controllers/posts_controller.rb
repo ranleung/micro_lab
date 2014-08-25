@@ -11,11 +11,7 @@ class PostsController < ApplicationController
     @user = User.find(user_id)
     post_id = params[:id]
     @post = @user.posts.find(params[:id])
-<<<<<<< HEAD
     @comments = @post.comments.all
-=======
-    @comments = @posts.comments.all
->>>>>>> 21204214e1f70340d90f568151b3bca4afdb8c6d
   end
 
 
@@ -57,15 +53,6 @@ class PostsController < ApplicationController
     find_user_id
     find_post_id
 
-<<<<<<< HEAD
-    update_post = params.require(:post).permit(:title, :body)
-    @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
-
-    # Updating Tag currently not working
-    # update_tag = params.require(:tag).permit(:name)
-    # @post.tags.update_attributes(:name => update_tag[:name])
-
-=======
     if @post 
       update_post = params.require(:post).permit(:title, :body)
       @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
@@ -77,7 +64,6 @@ class PostsController < ApplicationController
       end
     end
     
->>>>>>> randall
     render :show
   end
 
