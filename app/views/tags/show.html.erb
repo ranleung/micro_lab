@@ -17,9 +17,14 @@
 			<% end %>	
 		</p>
 
+
 		<p><%= post.body %></p>
 
 		<p>Created On:  <%= post.created_at.to_formatted_s(:long) %></p>
+
+		<% if post.comments.length > 0 %>
+      <p><a href="/users/<%= post.user.id %>/posts/<%= post[:id] %>">(<%= post.comments.length %>) Comments</a></p>
+    <% end %>
 
 	<% end %>
 

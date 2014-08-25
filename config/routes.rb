@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :tags
     resources :posts do
       # resources :comments
-      resources :tags
+      # resources :tags
     end
     resources :pages
   end

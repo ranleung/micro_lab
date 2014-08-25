@@ -23,7 +23,6 @@ class PostsController < ApplicationController
   def create
     find_user_id
 
-
     new_post = params[:post].permit(:title, :body)
     @post = find_user_id.posts.new(new_post)
 
@@ -36,7 +35,7 @@ class PostsController < ApplicationController
     end
       redirect_to [@user, @post]
     else
-      render action 'new'
+      render action: 'new'
     end
   end
 
@@ -53,12 +52,16 @@ class PostsController < ApplicationController
     find_user_id
     find_post_id
 
-    update_post = params.require(:post).permit(:title, :body)
-    @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
-
-    # Updating Tag currently not working
-    # update_tag = params.require(:tag).permit(:name)
-    # @post.tags.update_attributes(:name => update_tag[:name])
+    if @post 
+      update_post = params.require(:post).permit(:title, :body)
+      @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
+      
+      new_tag = params.require(:post).permit(:tags[:name]).split(",").map(&:strip).map(&:downcase)
+      new_tag.each do |tag_str|
+        tag = Tag.find_or_create_by(name: tag_str)
+        @post.tags << tag
+      end
+    end
     
     render :show
   end

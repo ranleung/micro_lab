@@ -5,8 +5,10 @@ class Tag < ActiveRecord::Base
 	validates :name,
 		:presence => true,
 		:uniqueness => true,
-		:length => {:minimum => 1, :maximum => 10},
-		:format => {:with => /\A[a-z]+\Z/}
+		:length => {:minimum => 1, :maximum => 10}
+
+		
+		# :format => {:with => /\A[a-z]+/}
 
 end
 
