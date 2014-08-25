@@ -1,6 +1,6 @@
 <div class = "container">
 <%= form_for ([@user, @page]) do |f| %>
-<div class = "row"
+<div class = "row">
 <% if @page.errors.any? %>
 <div id = "error_explanation">
 	<h2><%=pluralize(@page.errors.count,"error") %> prohibited this article from being saved:</h2>
@@ -22,4 +22,8 @@
 </p>
 </div>
 <% end %>
+
+	<button>
+		<a href="/users/<%=@user.id%>/pages/<%= @page.id%>">Go Back</a>
+	</button>
 </div>
