@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 			:presence => true,
 			:uniqueness => true
 
-		
+
 end
 
 
