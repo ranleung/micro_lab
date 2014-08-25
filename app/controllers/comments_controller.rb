@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
     @user = @post.user_id
     # redirect_to '/users/1/posts/+ #{@post}'
     # redirect_to [@user, @post]
-
     redirect_to '/'
   end
 
