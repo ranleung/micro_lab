@@ -9,8 +9,8 @@
 	<h1><%= @post.title %></h1>
 	<p>
 		<% @post.tags.each do |tag| %>
-			<a href="/users/<%= @post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>	
-		<% end %>	
+			<a href="/users/<%= @post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>
+		<% end %>
 	</p>
 	<p><%= @post.body %></p>
 
@@ -27,7 +27,15 @@
 					<p><%= comment.content %></p>
 				</div>
 			<% end %>
+			<h3>Add Comment</h3>
+		<div class="row">
+		<%= form_for @comments do |f| %>
+			<%= f.text_field :commentable_type, placeholder: "content" %><br>
+			<%= f.submit "Save" %>
+		<% end %>
 		</div>
+		</div>
+
 
 <a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a>
 <a href="/" class="btn btn-primary">Home</a>

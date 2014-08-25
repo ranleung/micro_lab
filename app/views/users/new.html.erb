@@ -14,7 +14,10 @@
 			<p>Last Name:
 			<%= f.text_field :last_name, placeholder: "lastname" %></p><br>
 			<p>Email:
-			<%= f.text_field :email, placeholder: "email" %></p><br>
+			<%= text_field :user, :email, placeholder: "email" %></p><br>
+			<p>Confirm Email:
+			<%= text_field :user, :email, placeholder: "email" %>
+			</p>
 			<p>Image Url:
 			<%= f.text_field :image_url, placeholder: "img url" %></p><br>
 			<%= f.submit "Save"%>
