@@ -41,8 +41,10 @@ post1.comments << comment2
 
 # Test to see if Posts and Tags have many-to-many 
 post1.tags.create({name: "Awesome"})
-post1.tags.create({name: "COOL!"})
-post2.tags.create({name: "WOW!"})
+post1.tags.create({name: "COOL"})
+post2.tags.create({name: "WOW"})
+
+post2.tags.create({name: "NICE"})
 
 
 
