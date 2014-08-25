@@ -14,3 +14,9 @@
  *= require_tree .
  *= require_self
  */
+
+#background{
+	background: url(http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg) no-repeat center center fixed;
+	height: 600px;
+	background-size: cover;
+}

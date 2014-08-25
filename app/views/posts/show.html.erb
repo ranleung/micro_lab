@@ -12,6 +12,8 @@
 			<a href="/users/<%= @post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>	
 		<% end %>	
 	</p>
+
+	<p>By: <a href="/users/<%= @user.id %>"><%= @user.first_name %></a></p>
 	<p><%= @post.body %></p>
 
 
