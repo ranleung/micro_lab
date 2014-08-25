@@ -13,8 +13,13 @@ class CommentsController < ApplicationController
   def create
   	find_post_id
   	new_comment = params.require(:comment).permit(:content)
-    @comment = Comment.create(new_comment)
-    @post.comments << @comment
+    @comment = @post.comments.create(new_comment)
+    # @comment = Comment.create(new_comment)
+    # @post.comments << @comment 
+    @user = @post.user_id
+    # redirect_to '/users/1/posts/+ #{@post}'
+    # redirect_to [@user, @post]
+
     redirect_to '/'
   end
 

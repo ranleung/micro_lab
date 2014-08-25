@@ -2,9 +2,11 @@ class Post < ActiveRecord::Base
 
 	# associations 
 	  belongs_to :user
-	  has_many :comments
 	  has_many :post_tags
 	  has_many :tags, :through => :post_tags
+	  has_many :comments
+	  # has_many :comments, as: :commentable 
+
 	# validations
 		validates :title, presence: true, 
 			:length => {:maximum=>25}
