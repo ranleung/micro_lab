@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container text-center">
 
 	<h1>Posts#show</h1>
 	<p>Find me in app/views/posts/show.html.erb</p>
@@ -12,6 +12,8 @@
 			<a href="/users/<%= @post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>
 		<% end %>
 	</p>
+
+	<p>By: <a href="/users/<%= @user.id %>"><%= @user.first_name %></a></p>
 	<p><%= @post.body %></p>
 
 
