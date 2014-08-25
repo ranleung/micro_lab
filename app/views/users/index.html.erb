@@ -6,11 +6,14 @@
 
 	<% @users.each do |user| %>
 
-			<p>Title:
-			<% user.posts.each do |post|  %>
-				<a href="/users/<%= user.id%>/posts/<%= post.id %> "><%= post.title %></a>
-			<% end %>
-			</p>
+				<% user.posts.each do |post|  %>
+					<% if post.title.length > 1 %>
+					<p>Post Title:
+						<a href="/users/<%= user.id%>/posts/<%= post.id %> "><%= post.title %></a>
+					</p>
+					<% end %>
+				<% end %>
+				
 
 			<p>User:
 				<a href="/users/<%= user.id %>"><%= user.first_name %></a>
