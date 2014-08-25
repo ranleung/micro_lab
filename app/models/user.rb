@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	# associations
-		has_many :pages
-		has_many :posts
+		has_many :pages, dependent: :destroy
+		has_many :posts, dependent: :destroy
 	# validations
 		# validates :first_name, presence: true
 		# validates :last_name, presence: true
