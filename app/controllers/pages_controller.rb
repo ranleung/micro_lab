@@ -11,7 +11,6 @@ class PagesController < ApplicationController
     find_page_id
 
 	  if session[:user_id] != @user.id
-
     	redirect_to login_path
     end
 	end
