@@ -1,10 +1,12 @@
 class Comment < ActiveRecord::Base
-  # associations 
+  # associations
   belongs_to :post
-  # belongs_to :commentable, polymorphic: true
-  # has_many :comments, as: :commentable 
-  
-  # validations 
+
+  #polymorphic association
+  belongs_to :commentable, polymorphic: true
+  has_many :comments, as: :commentable
+
+  # validations
 	  validates :content, presence: true,
 	  	:length => {:minimum=>3}
 	  validates_length_of :content, {:maximum=>200}

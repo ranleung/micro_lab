@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-# before_action :is_authenticated?
+
 
   def index
     user_id = params[:user_id]
@@ -17,20 +17,23 @@ class PostsController < ApplicationController
   end
 
 
+
   def new
+
   	find_user_id
   	@posts = @user.posts.new
   end
 
 
   def create
+
     find_user_id
 
     new_post = params[:post].permit(:title, :body)
     @post = find_user_id.posts.new(new_post)
 
     new_tag = params[:tags].split(",").map(&:strip).map(&:downcase)
-    
+
     if @post.save
       new_tag.each do |tag_str|
         tag = Tag.find_or_create_by(name: tag_str)
@@ -53,20 +56,19 @@ class PostsController < ApplicationController
       render :edit
     else
       redirect_to login_path
-    end 
+    end
 
   end
 
 
   def update
+
     find_user_id
     find_post_id
 
-    if @post 
+    if @post
       update_post = params.require(:post).permit(:title, :body)
       @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
-      
-      # new_tag = params.require(:post).permit(:tags[:name]).to.a.split(",").map(&:strip).map(&:downcase)
 
       # new_tag.each do |tag_str|
       #   tag = Tag.find_or_create_by(name: tag_str)
@@ -74,12 +76,13 @@ class PostsController < ApplicationController
       # end
     end
 
-    
+
     redirect_to action: "show"
   end
 
 
   def destroy
+
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post.destroy

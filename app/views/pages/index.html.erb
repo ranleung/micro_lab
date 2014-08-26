@@ -12,10 +12,11 @@
 		<% end %>
 	<% end %>
 
-
-	<button>
-		<a href="/users/<%=@user.id%>/pages/new">Create New Page</a>
-	</button>	
+	<% if session[:user_id] == @user.id %>
+		<button>
+			<a href="/users/<%=@user.id%>/pages/new">Create New Page</a>
+		</button>	
+	<% end %>
 
 	<button>
 		<a href="/users/<%=@user.id%>">Go Back</a>

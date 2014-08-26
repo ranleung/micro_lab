@@ -6,6 +6,7 @@ class Page < ActiveRecord::Base
 
   validates_format_of :name, :with => /(about|contact|About|Contact)/
 
+
   validates :content, presence: true
 
 end
