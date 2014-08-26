@@ -1,7 +1,8 @@
 
 <div class="container text-center">
-	
+
 	<h1>Welcome to Micro Blog</h1>
+	<%
 	<button><a href="users/new">Create New User</a></button>
 
 
@@ -10,18 +11,18 @@
 
 				<% user.posts.each do |post|  %>
 					<% if post.title.length > 1 %>
-					
+
 						<p><a href="/users/<%= user.id%>/posts/<%= post.id %> "><%= post.title %></a></p>
-					
+
 					<% end %>
 				<% end %>
-				
+
 
 			<p>Users:
 				<a href="/users/<%= user.id %>"><%= user.first_name %></a>
 			</p><br>
 
-			
+
 
 
 	<% end %>

@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
 
+  get '/login' => 'session#new'
+
+  post '/login'=> 'session#create'
+
+  delete '/logout'=> 'session#destroy'
+  get '/logout'=> 'session#destroy'
+
   root to: 'users#index'
 
   resources :users do
@@ -15,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :posts do
   	resources :comments
-  end 
+  end
 
 
 

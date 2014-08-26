@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+
   def index
     user_id = params[:user_id]
     @user = User.find(user_id)
@@ -15,13 +17,16 @@ class PostsController < ApplicationController
   end
 
 
+
   def new
+
   	find_user_id
   	@posts = @user.posts.new
   end
 
 
   def create
+
     find_user_id
 
     new_post = params[:post].permit(:title, :body)
@@ -50,6 +55,7 @@ class PostsController < ApplicationController
 
 
   def update
+
     find_user_id
     find_post_id
 
@@ -69,6 +75,7 @@ class PostsController < ApplicationController
 
 
   def destroy
+
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post.destroy

@@ -29,12 +29,7 @@
 					<p><%= comment.content %></p>
 				</div>
 			<% end %>
-			<h3>Add Comment</h3>
-		<div class="row">
-		<%= form_for @comments do |f| %>
-			<%= f.text_field :commentable_type, placeholder: "content" %><br>
-			<%= f.submit "Save" %>
-		<% end %>
+
 		</div>
 		</div>
 

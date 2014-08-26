@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+	has_secure_password
+
 	# associations
 		has_many :pages, dependent: :destroy
 		has_many :posts, dependent: :destroy
@@ -17,8 +20,15 @@ class User < ActiveRecord::Base
 		validates :email,
 			:confirmation => true,
 			:presence => true,
-			:uniqueness => true
+			:uniqueness => true,
+			:length => {:minimum => 6}
 
+		validates_format_of :email, :with =>/(\w*[@]\w*[.]\w*)/
+
+	def self.authenticate email, password
+		User.find_by_email(email).try(:authenticate,password)
+
+	end
 
 end
 

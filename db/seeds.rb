@@ -8,9 +8,9 @@
 
 
 # Creating Users
-dustin = User.create({email: "dustin@gmail.com", first_name: "Dustin", last_name: "Yu", image_url: "www.yahoo.com"})
-david = User.create({email: "david@hotmail.com", first_name: "David", last_name: "Javate", image_url: "www.google.com"})
-randall = User.create({email: "randall@yahoo.com", first_name: "Randall", last_name: "Leung", image_url: "www.facebook.com"})
+dustin = User.create({email: "dustin@gmail.com", first_name: "Dustin", last_name: "Yu", image_url: "www.yahoo.com", password: "123"})
+david = User.create({email: "david@hotmail.com", first_name: "David", last_name: "Javate", image_url: "www.google.com",password: "123"})
+randall = User.create({email: "randall@yahoo.com", first_name: "Randall", last_name: "Leung", image_url: "www.facebook.com",password: "123"})
 
 # Creating Pages
 page1 = Page.create({name: "Dustin's About Me Page", content: "My name is Dustin.  And this is the cotent to the about me page!"})
@@ -39,7 +39,7 @@ dustin.posts << post2
 post1.comments << comment1
 post1.comments << comment2
 
-# Test to see if Posts and Tags have many-to-many 
+# Test to see if Posts and Tags have many-to-many
 post1.tags.create({name: "Awesome"})
 post1.tags.create({name: "COOL"})
 post2.tags.create({name: "WOW"})
