@@ -15,6 +15,9 @@ class PagesController < ApplicationController
 	def new
 		find_user_id
 		@page=@user.pages.new
+		if session[:user_id] != @user.id
+			redirect_to login_path
+		end
 	end
 
 
@@ -23,6 +26,9 @@ class PagesController < ApplicationController
 		new_page = params[:page].permit(:name, :content)
 		@page= Page.create(new_page)
 		@user.pages << @page
+		if session[:user_id] != @user.id
+			redirect_to login_path
+		end
 		redirect_to "/"
 
 	end

@@ -10,8 +10,11 @@
 				<p><%= @user.last_name %></p>
 				<p><%= @user.email%></p>
 				<p><%= button_to 'about/contact',user_pages_path(@user), method: :get %> </p>
-				<p><%= button_to 'update',edit_user_path, method: :get %> </p>
-		<p><%= button_to 'delete', @users, method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+
+				<% if session[:user_id] == @user.id %>
+					<p><%= button_to 'update',edit_user_path, method: :get %> </p>
+					<p><%= button_to 'delete', @users, method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+				<% end %>
 
 		</div>
 
