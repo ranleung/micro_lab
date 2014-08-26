@@ -3,12 +3,12 @@
 	
 	<h1>Welcome to Micro Blog</h1>
 
-	<button><a href="/login"></a>Log In</button>
-	<button><a href="/logout">Log Out</a></button>
 
-
-	<% if session[:user_id] == nil %>
+		<button><a href="/login">Log In</a></button>
 		<button><a href="users/new">Create New User</a></button>	
+
+	<% if session[:user_id] != nil %>
+		<button><a href="/logout">Log Out</a></button>
 	<% end %>
 
 
