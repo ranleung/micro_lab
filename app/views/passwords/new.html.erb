@@ -1,2 +1,13 @@
-<h1>Passwords#new</h1>
-<p>Find me in app/views/passwords/new.html.erb</p>
+<h1>Enter your email to reset your password</h1>
+
+<% flash.each do |name,msg| %>
+	<h2 id="<%= name %>"><%= msg %></h2>
+<% end %>
+
+<%= form_tag passwords_path do %>
+<%= text_field_tag :email, nil, placeholder: "Enter your email" %>
+<%= submit_tag "Reset Password", class: "btn btn-primary" %>
+<% end %>
+
+
+<a href="/" class="btn btn-primary">Home</a>

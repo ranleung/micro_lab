@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   	resources :comments
   end
 
-  resources :password
+  resources :passwords
 
 
 end
