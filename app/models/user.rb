@@ -30,6 +30,13 @@ class User < ActiveRecord::Base
 
 	end
 
+
+	def self.authenticate email, password
+		User.find_by_email(email).try(:authenticate, password)
+	end
+
+
+
 end
 
 

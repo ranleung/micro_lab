@@ -1,3 +1,4 @@
+
 <h1>Login</h1>
 
 <%= form_for :user do |f| %>
@@ -5,3 +6,24 @@
 <%= f.password_field :password, placeholder: "password" %>
 <%= f.submit "Login" %>
 <% end %>
+
+<h1>Session#new</h1>
+<p>Find me in app/views/session/new.html.erb</p>
+
+<h1>Log In</h1>
+
+
+
+<%= form_for :user do |f| %>
+	<p>Email:
+	<%= f.email_field :email, placeholder: "email" %></p><br>
+	<%= f.password_field :password, placeholder: "password" %>
+	<%= f.submit "Log In"%>
+<% end %>
+
+<button><a href="/users/new">Sign Up</a></button>
+<button><a href="/">Home</a></button>
+
+
+
+>>>>>>> 90116ed4c3cb80485bba18138098770f0539f8bc

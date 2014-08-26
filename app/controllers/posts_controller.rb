@@ -51,6 +51,13 @@ class PostsController < ApplicationController
   def edit
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find_by_id(params[:id])
+
+    if session[:user_id] == @user.id
+      render :edit
+    else
+      redirect_to login_path
+    end
+
   end
 
 
