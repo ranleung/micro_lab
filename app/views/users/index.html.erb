@@ -2,9 +2,17 @@
 <div class="container text-center">
 	
 	<h1>Welcome to Micro Blog</h1>
+
 	<button><a href="users/new">Create New User</a></button>
 	<button><a href="/login"></a>Log In</button>
 	<button><a href="/logout">Log Out</a></button>
+
+
+	<% if session[:user_id] == nil %>
+		<button><a href="users/new">Create New User</a></button>	
+	<% end %>
+
+
 
 
 <h3>Posts:</h3>

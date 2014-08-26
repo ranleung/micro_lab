@@ -16,8 +16,11 @@
 	<p>By: <a href="/users/<%= @user.id %>"><%= @user.first_name %></a></p>
 	<p><%= @post.body %></p>
 
+	
+	<% if session[:user_id] == @user.id %>
+		<a href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" class="btn btn-primary">Edit</a>
+	<% end %>
 
-	<a href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" class="btn btn-primary">Edit</a>
 
 	<h2>Comments:</h2>
 		<div class="row">
@@ -28,7 +31,10 @@
 			<% end %>
 		</div>
 
-<a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a>
+<% if session[:user_id] == @user.id %>
+	<a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a>
+<% end %>
+
 <a href="/" class="btn btn-primary">Home</a>
 <a href="/users/<%= @user.id %>/posts" class="btn btn-primary">Back to All Posts</a>
 

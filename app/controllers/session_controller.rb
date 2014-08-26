@@ -7,6 +7,7 @@ class SessionController < ApplicationController
     #where authentication happens
     @user = User.authenticate(params[:user][:email],params[:user][:password])
 
+
     if @user
       session[:user_id] = @user.id
       p "LOGGED IN"
@@ -15,6 +16,7 @@ class SessionController < ApplicationController
       p "DID NOT LOG IN"
       redirect_to login_path
     end
+
 
   end
 
