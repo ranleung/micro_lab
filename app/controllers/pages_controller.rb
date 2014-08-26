@@ -9,7 +9,9 @@ class PagesController < ApplicationController
 	def show
     find_user_id
     find_page_id
-    if session[:user_id] != @user.id
+
+	  if session[:user_id] != @user.id
+
     	redirect_to login_path
     end
 	end
@@ -29,16 +31,13 @@ class PagesController < ApplicationController
 		new_page = params[:page].permit(:name, :content)
 		@page= Page.create(new_page)
 		@user.pages << @page
-		if session[:user_id] != @user.id
-			redirect_to login_path
-		end
-		redirect_to "/"
-
+		redirect_to login_path if session[:user_id] != @user.id
 	end
 
 	def edit
 		find_user_id
 		find_page_id
+		redirect_to login_path if session[:user_id] != @user.id
 	end
 
 	def update

@@ -5,8 +5,10 @@
 
 		<p><%= @page.name%></p>
 		<p><%= @page.content %></p>
-		<p><%= button_to 'update',edit_user_page_path, method: :get %> </p>
-		<p><%= button_to 'delete', @pages, method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+		<% if session[:user_id] == @user.id %>
+			<p><%= button_to 'update',edit_user_page_path, method: :get %> </p>
+			<p><%= button_to 'delete', @pages, method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+		<% end %>
 
 	</div>
 
