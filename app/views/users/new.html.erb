@@ -18,6 +18,9 @@
 			<p>Confirm Email:
 			<%= email_field :user, :email, placeholder: "email" %>
 			</p>
+			<p>Password:
+			<%= f.password_field :password, placeholder: "password" %>
+			</p>
 			<p>Image Url:
 			<%= f.text_field :image_url, placeholder: "img url" %></p><br>
 			<%= f.submit "Save"%>

@@ -54,12 +54,15 @@ ActiveRecord::Schema.define(version: 20140823054902) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
+    t.integer  "post_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
     t.string   "email"
+    t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "image_url"
