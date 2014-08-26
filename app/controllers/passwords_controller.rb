@@ -12,8 +12,12 @@ class PasswordsController < ApplicationController
   		UserMailer.password_reset(user).deliver
   		redirect_to '/', notice: "Email was sent with instructions"
   	else
-  		redirect_to action: 'new', notice: "Invalid Email"
+  		redirect_to action: 'new', :notice => "Invalid Email"
 	  end
+	end
+
+	def edit
+		
 	end
 
 
