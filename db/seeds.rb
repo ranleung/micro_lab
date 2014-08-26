@@ -8,9 +8,9 @@
 
 
 # Creating Users
-dustin = User.create({email: "dustin@gmail.com", first_name: "Dustin", last_name: "Yu", image_url: "www.yahoo.com"})
-david = User.create({email: "david@hotmail.com", first_name: "David", last_name: "Javate", image_url: "www.google.com"})
-randall = User.create({email: "randall@yahoo.com", first_name: "Randall", last_name: "Leung", image_url: "www.facebook.com"})
+dustin = User.create({email: "dustin@gmail.com", password: "123", first_name: "Dustin", last_name: "Yu", image_url: "www.yahoo.com"})
+david = User.create({email: "david@hotmail.com", password: "123", first_name: "David", last_name: "Javate", image_url: "www.google.com"})
+randall = User.create({email: "randall@yahoo.com", password: "123", first_name: "Randall", last_name: "Leung", image_url: "www.facebook.com"})
 
 # Creating Pages
 page1 = Page.create({name: "Dustin's About Me Page", content: "My name is Dustin.  And this is the cotent to the about me page!"})
@@ -43,7 +43,6 @@ post1.comments << comment2
 post1.tags.create({name: "Awesome"})
 post1.tags.create({name: "COOL"})
 post2.tags.create({name: "WOW"})
-
 post2.tags.create({name: "NICE"})
 
 

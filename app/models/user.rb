@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+	has_secure_password
+
 	# associations
 		has_many :pages, dependent: :destroy
 		has_many :posts, dependent: :destroy
