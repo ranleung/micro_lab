@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		new_user = params[:user].permit(:first_name, :last_name, :email, :password, :image_url)
+		new_user = params[:user].permit(:first_name, :last_name, :email, :image_url, :password)
 
 		user= User.create(new_user)
 		redirect_to action: "index"
@@ -26,10 +26,12 @@ class UsersController < ApplicationController
 
 
 	def edit
+
 		find_user_id
 	end
 
 	def update
+
 		find_user_id
 
 		user_params = params.require(:user).permit(:first_name, :last_name, :email, :image_url)
