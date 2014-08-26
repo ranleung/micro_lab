@@ -7,7 +7,7 @@
 
 <%= form_for :user do |f| %>
 	<p>Email:
-	<%= f.email_field :email, placeholder: "email" %></p><br>
+	<%= f.email_field :email, placeholder: "email", :autofocus=> true%></p><br>
 	<%= f.password_field :password, placeholder: "password" %>
 	<%= f.submit "Log In"%>
 <% end %>
