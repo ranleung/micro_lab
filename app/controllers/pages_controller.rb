@@ -9,7 +9,10 @@ class PagesController < ApplicationController
 	def show
     find_user_id
     find_page_id
-  	end
+	  if session[:user_id] != @user.id
+    	redirect_to login_path
+    end
+	end
 
 
 	def new
