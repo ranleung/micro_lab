@@ -23,15 +23,38 @@
 
 
 	<h2>Comments:</h2>
-		<div class="row">
+	<div class="row comment-con">
+		<div class ="comment-content">
 			<% @comments.each do |comment| %>
-				<div>
-					<p><%= comment.content %></p>
-				</div>
-			<% end %>
 
+			<p><%= comment.content %></p>
 		</div>
+		<button class="comment btn" data-comment-id="<%=comment.id %>">Reply</button>
+
+	</div>
+	<%comment.comments.each do |sub_comment| %>
+
+	<p><%= sub_comment.content %> </p>
+
+	<button class="comment btn" data-comment-id="<%=comment.id %>">Reply</button>
+	<% end %>
+	<% end %>
+
+</div>
+
+<div class ="row cust-con">
+	<div>
+		<%= form_for [@comment,] do |f| %>
+		<div class="form-group">
+			<%= f.text_area :content, class: "form-control",
+			placeholder: "Comment here" %>
 		</div>
+		<div class = "form-group">
+			<%= f.submit class: "btn" %>
+		</div>
+		<% end %>
+	</div>
+</div>
 
 
 <% if session[:user_id] == @user.id %>

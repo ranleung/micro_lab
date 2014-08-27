@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     post_id = params[:id]
     @post = @user.posts.find(params[:id])
     @comments = @post.comments.all
+    @comment = @post.comments.new
   end
 
 
