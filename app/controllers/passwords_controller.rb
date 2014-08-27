@@ -18,7 +18,6 @@ class PasswordsController < ApplicationController
 
 	def edit
 		@user = User.find_by_code(params[:id])
-		@password = User.find_by_code(params[:id])
 	end
 
 	def update		

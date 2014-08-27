@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 			:length => {:minimum => 6}
 
 		validates_format_of :email, :with =>/(\w*[@]\w*[.]\w*)/
+		validates_confirmation_of :password
 
 	def self.authenticate email, password
 		User.find_by_email(email).try(:authenticate,password)
