@@ -70,7 +70,7 @@ class PostsController < ApplicationController
     if @post
       update_post = params.require(:post).permit(:title, :body)
       @post.update_attributes(:title => update_post[:title], :body => update_post[:body])
-
+    end
       # new_tag.each do |tag_str|
       #   tag = Tag.find_or_create_by(name: tag_str)
       #   @post.tags << tag

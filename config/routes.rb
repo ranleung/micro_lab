@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root to: 'users#index'
 
   get "/login" => "session#new"
@@ -23,7 +22,7 @@ Rails.application.routes.draw do
   	resources :comments
   end
 
-
+  resources :passwords
 
 
 end
