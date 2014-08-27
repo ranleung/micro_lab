@@ -3,6 +3,11 @@
 	<div class="jumbotron">
 		<h2>About me:</h2>
 
+		<% flash.each do |k,v| %>
+			<h2 id="<% k %>"><%= v %></h2>
+		<% end %>
+
+
 		<p><%= @page.name%></p>
 		<p><%= @page.content %></p>
 		<% if session[:user_id] == @user.id %>

@@ -4,7 +4,9 @@
 	<h1>Posts#show</h1>
 	<p>Find me in app/views/posts/show.html.erb</p>
 
-
+	<% flash.each do |k,v| %>
+	<h2 id="<% k %>"><%= v %></h2>
+	<% end %>
 
 	<h1><%= @post.title %></h1>
 	<p>
