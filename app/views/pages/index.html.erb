@@ -2,9 +2,11 @@
 
 	<h1>About Me/Contact:</h1>
 
-		<% flash.each do |k,v| %>
-			<h2 id="<% k %>"><%= v %></h2>
-		<% end %>
+
+<% flash.each do |name,msg| %>
+	<h2 id="<%= name %>"><%= msg %></h2>
+<% end %>
+
 
 
 		<% if @pages != nil %>

@@ -3,7 +3,9 @@
 
 	<h1>Welcome to Micro Blog</h1>
 
-
+	<% flash.each do |name,msg| %>
+		<h2 id="<%= name %>"><%= msg %></h2>
+	<% end %>
 
 	<% if session[:user_id] == nil %>
 		<button><a href="/login">Log In</a></button>
