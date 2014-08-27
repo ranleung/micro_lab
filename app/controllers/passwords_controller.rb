@@ -10,9 +10,9 @@ class PasswordsController < ApplicationController
   		user.set_password_reset
   		UserMailer.password_reset(user).deliver
 	  	p "The email to reset password is: #{user}"
-  		redirect_to '/' , notice: "Email was sent with instructions"
+  		redirect_to root_url , notice: "Email was sent with instructions"
   	else
-  		redirect_to action: 'new', :notice => "Invalid Email"
+  		redirect_to new_password_url, notice: "Invalid Email"
 	  end
 	end
 
