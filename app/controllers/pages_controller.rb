@@ -31,6 +31,7 @@ class PagesController < ApplicationController
 		@page= Page.create(new_page)
 		@user.pages << @page
 		redirect_to login_path if session[:user_id] != @user.id
+		redirect_to user_pages_url, notice: "Created page!"
 	end
 
 	def edit
@@ -44,7 +45,7 @@ class PagesController < ApplicationController
 		find_page_id
 		page_params = params.require(:page).permit(:name, :content)
 			if @page.update(page_params)
-				redirect_to [@user, @page]
+				redirect_to user_page_url, :notice => "Updated the page"
 			else
 				render action: 'edit'
 			end
@@ -54,7 +55,7 @@ class PagesController < ApplicationController
 		find_user_id
 		find_page_id
 		@page.destroy
-		redirect_to "/"
+		redirect_to user_pages_url, :notice => "Page Deleted"
 
 	end
 

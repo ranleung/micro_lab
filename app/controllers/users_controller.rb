@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 		new_user = params[:user].permit(:first_name, :last_name, :email, :image_url, :password)
 
 		user= User.create(new_user)
-		redirect_to action: "index"
+		redirect_to users_url, :notice => "User created!"
 	end
 
 

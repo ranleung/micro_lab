@@ -4,15 +4,19 @@
 	<h1>Welcome to Micro Blog</h1>
 
 
-
-		<button><a href="/login">Log In</a></button>
-		<button><a href="users/new">Create New User</a></button>
-
 	<% if session[:user_id] != nil %>
 		<button><a href="/logout">Log Out</a></button>
+	<% else %>
+		<button><a href="/login">Log In</a></button>
+		<button><a href="users/new">Create New User</a></button>
+		<% flash.each do |k,v| %>
+			<h2 id="<% k %>"><%= v %></h2>
+		<% end %>
 	<% end %>
 
 
+
+	
 
 
 <h3>Posts:</h3>

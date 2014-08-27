@@ -34,13 +34,14 @@ class PostsController < ApplicationController
 
     new_tag = params[:tags].split(",").map(&:strip).map(&:downcase)
 
-    if @post.save
+    if @post.save 
       new_tag.each do |tag_str|
         tag = Tag.find_or_create_by(name: tag_str)
         @post.tags << tag
     end
-      redirect_to [@user, @post]
+      redirect_to [@user, @post], :notice => "Post Added!"
     else
+      flash.now[:notice] = "Try again"
       render action: 'new'
     end
   end
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
     if session[:user_id] == @user.id
       render :edit
     else
-      redirect_to login_path
+      redirect_to login_path, :notice => "Please log in first"
     end
 
   end
@@ -74,10 +75,13 @@ class PostsController < ApplicationController
       #   tag = Tag.find_or_create_by(name: tag_str)
       #   @post.tags << tag
       # end
+
+      redirect_to user_post_url, :notice => "Edited the post!!!"
+    else
+      redirect_to user_post_url
     end
 
 
-    redirect_to action: "show"
   end
 
 
@@ -87,7 +91,7 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
     @post.destroy
 
-    redirect_to action: "index"
+    redirect_to user_post_url, :notice => "Post was deleted"
   end
 
 
