@@ -46,7 +46,7 @@ class PostsController < ApplicationController
       render action: 'new'
     end
   else
-    render plain: "DONT HACK ME"
+    render plain: "DONT HACK ME!"
   end
   end
 
