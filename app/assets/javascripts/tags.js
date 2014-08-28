@@ -26,7 +26,6 @@ $(document).ready(function(){
 		$("#tagData").append("<h3> #"+arr+"</h3>");
 		console.log(arr); 
 
-		// var obs = JSOON.parse('['+s.join(',')+']');
 
 		// var objs = JSON.parse('['+s.join(',')+']');
 		}) // ajax close brackets
