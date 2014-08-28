@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :find_parent
 
 	def index
 		find_post_id
@@ -11,18 +12,23 @@ class CommentsController < ApplicationController
   end
 
   def create
-  	find_post_id
   	new_comment = params.require(:comment).permit(:content)
-    @comment = @post.comments.create(new_comment)
+    @parent.comments.create(new_comment)
     # @comment = Comment.create(new_comment)
-    # @post.comments << @comment 
-    @user = @post.user_id
+    # @post.comments << @comment
+    # @user = @post.user_id
     # redirect_to '/users/1/posts/+ #{@post}'
     # redirect_to [@user, @post]
     redirect_to '/'
   end
 
   def show
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+    post_id = params[:id]
+    @post = @user.posts.find(params[:id])
+    @comments = @post.comments.all
+    @comment = @post.comments.new
   end
 
   def destroy
@@ -32,8 +38,20 @@ class CommentsController < ApplicationController
   	redirect_to 'posts/@post'
   end
 
+  def commentable
+    binding.pry
+  end
+
 
   private
+
+  def find_parent
+      @parent = @post = Post.find_by_id(params[:post_id])
+      if params[:id]
+        @parent = Comment.find_by_id(params[:id])
+      end
+      redirect_to users_path unless @parent
+    end
 
   def find_post_id
   	post_id = params[:post_id]

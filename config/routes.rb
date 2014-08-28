@@ -12,10 +12,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :tags
-    resources :posts do
+    resources :posts  #destroy
       # resources :comments
       # resources :tags
-    end
+    # end
     resources :pages
   end
 
@@ -24,7 +24,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  post "/posts/:id/comments/:id"=>'comments#create'
+
   resources :passwords
+
 
   get "/tags", to: "tags#index"
 

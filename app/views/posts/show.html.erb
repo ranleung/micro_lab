@@ -1,9 +1,11 @@
 
 <div class="container text-center">
+
 <div class="jumbotron">
 	<% flash.each do |k,v| %>
 	<h2 id="<% k %>"><%= v %></h2>
 	<% end %>
+
 
 	<h1><%= @post.title %></h1>
 	<p>
@@ -19,26 +21,62 @@
 	<% if session[:user_id] == @user.id %>
 		<a href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" class="btn btn-primary">Edit</a>
 	<% end %>
+
+<% if session[:user_id] == @user.id %>
+
 </div>
 
+
 	<h2>Comments:</h2>
-		<div class="row">
-			<% @comments.each do |comment| %>
-				<div>
-					<p><%= comment.content %></p>
+	<div class="comments">
+				<div class ="row cust-con">
+
+					<%= form_for [@post, @comment], :url => post_comments_path(@post, @comment) do |f| %>
+						<div class="form-group">
+						<%= f.text_area :content, class: "form-control",
+						placeholder: "Comment here" %>
+						</div>
+						<div class = "form-group">
+						<%= f.submit class: "btn" %>
+						</div>
+					<% end %>
+
 				</div>
+
 				<hr class="featurette-divider">
 			<% end %>
 
-		</div>
-		</div>
+		<div class="row comment-con">
+						<div class ="comment-content">
+						<% @comments.each do |comment| %>
+
+						<p><%= comment.content %></p>
+
+						<button class="comment-btn btn" data-comment-id="<%=comment.id %>">Reply</button>
 
 
-<% if session[:user_id] == @user.id %>
-	<a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a>
+
+	<%comment.comments.each do |sub_comment| %>
+
+	<p><%= sub_comment.content %> </p>
+
+	<button class="comment btn" data-comment-id="<%=comment.id %>">Reply</button>
+	</div>
+	<% end %>
+	<% end %>
+
+
+
+
+</div>
+
+
+	<!-- <a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a> -->
 <% end %>
-	
+
+<a href="/" class="btn btn-primary">Home</a>
 <a href="/users/<%= @user.id %>/posts" class="btn btn-primary">Back to All Posts</a>
+
 
 </div>  <!-- container close -->
 
