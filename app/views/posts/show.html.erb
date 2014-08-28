@@ -20,50 +20,57 @@
 	<% end %>
 
 <% if session[:user_id] == @user.id %>
+
+
 	<h2>Comments:</h2>
 	<div class="comments">
-	<div class="row comment-con">
-		<div class ="comment-content">
-			<% @comments.each do |comment| %>
+				<div class ="row cust-con">
 
-			<p><%= comment.content %></p>
-		</div>
-		<button class="comment-btn btn" data-comment-id="<%=comment.id %>">Reply</button>
+					<%= form_for [@post, @comment], :url => post_comments_path(@post, @comment) do |f| %>
+						<div class="form-group">
+						<%= f.text_area :content, class: "form-control",
+						placeholder: "Comment here" %>
+						</div>
+						<div class = "form-group">
+						<%= f.submit class: "btn" %>
+						</div>
+					<% end %>
 
-	</div>
+				</div>
+
+		<div class="row comment-con">
+						<div class ="comment-content">
+						<% @comments.each do |comment| %>
+
+						<p><%= comment.content %></p>
+
+						<button class="comment-btn btn" data-comment-id="<%=comment.id %>">Reply</button>
+
+
+
 	<%comment.comments.each do |sub_comment| %>
 
 	<p><%= sub_comment.content %> </p>
 
 	<button class="comment btn" data-comment-id="<%=comment.id %>">Reply</button>
-	<% end %>
-	<% end %>
-
-</div>
-
-</div>
-<div class ="row cust-con">
-	<div>
-		<%= form_for [@post, @comment] do |f| %>
-		<div class="form-group">
-			<%= f.text_area :content, class: "form-control",
-			placeholder: "Comment here" %>
-		</div>
-		<div class = "form-group">
-			<%= f.submit class: "btn" %>
-		</div>
-		<% end %>
 	</div>
-</div>
+	<% end %>
+	<% end %>
 
+
+
+
+</div>
 
 
 	<!-- <a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a> -->
 <% end %>
 
 
+
 <a href="/" class="btn btn-primary">Home</a>
 <a href="/users/<%= @user.id %>/posts" class="btn btn-primary">Back to All Posts</a>
+
 
 </div>  <!-- container close -->
 

@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @parent.comments.create(new_comment)
     # @comment = Comment.create(new_comment)
     # @post.comments << @comment
-    @user = @post.user_id
+    # @user = @post.user_id
     # redirect_to '/users/1/posts/+ #{@post}'
     # redirect_to [@user, @post]
     redirect_to '/'
@@ -36,6 +36,10 @@ class CommentsController < ApplicationController
   	@comment.destroy
   	find_post_id
   	redirect_to 'posts/@post'
+  end
+
+  def commentable
+    binding.pry
   end
 
 

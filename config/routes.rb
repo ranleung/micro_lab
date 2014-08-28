@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :tags
-    resources :posts destroy
+    resources :posts  #destroy
       # resources :comments
       # resources :tags
-    end
+    # end
     resources :pages
   end
 
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :posts do
   	resources :comments
   end
+
+  post "/posts/:id/comments/:id"=>'comments#create'
 
 
 
