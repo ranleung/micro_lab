@@ -5,7 +5,7 @@
 	<div class="jumbotron">
 		<div class="row">
 			<h2>Profile</h2>
-				<p><%= @user.image_url%></p>
+			<img src="<%= @user.image_url%>" alt="head shot" height="200" width="200">
 				<h3><%= @user.first_name %></h3>
 				<p><%= @user.last_name %></p>
 				<p><%= @user.email%></p>
