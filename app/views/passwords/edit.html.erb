@@ -1,0 +1,15 @@
+<h1>Password Reset</h1>
+
+<h2>Hello <%= @user.first_name %></h2>
+<h2>Please enter your new password here:</h2>
+
+	<% flash.each do |k,v| %>
+			<h2 id="<% k %>"><%= v %></h2>
+		<% end %>
+
+
+<%= form_for @user, :url => {:action => "update", :method => "put"} do |f|%>
+<%= f.password_field :password, placeholder: "Enter your password" %>
+<%= f.password_field :password_confirmation, placeholder: "Confirm your password" %>
+<%= f.submit "Reset Password", class: "btn btn-primary" %>
+<% end %>

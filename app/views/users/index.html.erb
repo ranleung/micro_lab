@@ -1,41 +1,43 @@
-
 <div class="container text-center">
 
-	<h1>Welcome to Micro Blog</h1>
+	
 
 
+<script id="entry-template" type="text/x-handlebars-template">
 
-		<button><a href="/login">Log In</a></button>
-		<button><a href="users/new">Create New User</a></button>
 
-	<% if session[:user_id] != nil %>
-		<button><a href="/logout">Log Out</a></button>
+</script>
+
+
+<div id="tagData" style="color:green">
+
+	<% flash.each do |name,msg| %>
+		<h2 id="<%= name %>"><%= msg %></h2>
 	<% end %>
 
 
 
-
-<h3>Posts:</h3>
+	<div class="jumbotron">
+		<h1>Welcome to Micro Blog</h1>
+		<h2>Trending Now:</h2>
 	<% @users.each do |user| %>
 
-				<% user.posts.each do |post|  %>
-					<% if post.title.length > 1 %>
+		<% user.posts.each do |post|  %>
+			<% if post.title.length > 1 %>
 
-						<p><a href="/users/<%= user.id%>/posts/<%= post.id %> "><%= post.title %></a></p>
+				<p><a href="/users/<%= user.id%>/posts/<%= post.id %> "><%= post.title %></a></p>
 
-					<% end %>
-				<% end %>
-
-
-			<p>Users:
-				<a href="/users/<%= user.id %>"><%= user.first_name %></a>
-			</p><br>
-
-
+			<% end %>
+		<% end %>
 	<% end %>
+</div>
 
 
-<a href="/users/1/tags" class="btn btn-primary">ALL TAGS!</a>
+
+<a href="javascript:void(0);" id="alltags" class="btn btn-primary">ALL TAGS!</a>
+
+
+
 
 
 </div>

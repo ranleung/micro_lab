@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-
   root to: 'users#index'
+
+
 
   get "/login" => "session#new"
   post "/login" => "session#create"
@@ -20,12 +21,14 @@ Rails.application.routes.draw do
 
 
   resources :posts do
-  	resources :comments
+    resources :comments
   end
 
   post "/posts/:id/comments/:id"=>'comments#create'
 
+  resources :passwords
 
 
+  get "/tags", to: "tags#index"
 
 end

@@ -41,6 +41,13 @@ gem 'bcrypt', '~> 3.1.7'
 group :development do
 	gem 'pry'
 	gem 'pry-rails'
+	gem 'letter_opener'
 end
 
+
+
+# group :assets do
+#   gem "handlebars_assets"
+#   # more gems
+# end
 

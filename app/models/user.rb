@@ -24,15 +24,20 @@ class User < ActiveRecord::Base
 			:length => {:minimum => 6}
 
 		validates_format_of :email, :with =>/(\w*[@]\w*[.]\w*)/
+		validates_confirmation_of :password
 
 	def self.authenticate email, password
 		User.find_by_email(email).try(:authenticate,password)
-
 	end
-
 
 	def self.authenticate email, password
 		User.find_by_email(email).try(:authenticate, password)
+	end
+
+	def set_password_reset
+		self.code = SecureRandom.urlsafe_base64
+		self.expires_at = 4.hours.from_now
+		self.save!
 	end
 
 

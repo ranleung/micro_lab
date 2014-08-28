@@ -1,17 +1,18 @@
 
+<div class="container">
+	<div class="jumbotron text-center">
 <h1>Log In</h1>
 
 
 
 <%= form_for :user do |f| %>
-	<p>Email:
-	<%= f.email_field :email, placeholder: "email" %></p><br>
-	<%= f.password_field :password, placeholder: "password" %>
-	<%= f.submit "Log In"%>
+	<%= f.email_field :email, placeholder: "Email", :autofocus=> true, class: "form-control"%>
+	<%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+	<%= f.submit "Log In", class: "btn btn-info"%>
 <% end %>
 
-<button><a href="/users/new">Sign Up</a></button>
-<button><a href="/">Home</a></button>
+</div>
 
+<a href="/passwords/new" class="btn btn-primary">Forgot Password?</a>
 
-
+</div>

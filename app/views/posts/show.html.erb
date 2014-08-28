@@ -1,7 +1,10 @@
 
 <div class="container text-center">
 
-
+<div class="jumbotron">
+	<% flash.each do |k,v| %>
+	<h2 id="<% k %>"><%= v %></h2>
+	<% end %>
 
 
 	<h1><%= @post.title %></h1>
@@ -21,6 +24,8 @@
 
 <% if session[:user_id] == @user.id %>
 
+</div>
+
 
 	<h2>Comments:</h2>
 	<div class="comments">
@@ -37,6 +42,9 @@
 					<% end %>
 
 				</div>
+
+				<hr class="featurette-divider">
+			<% end %>
 
 		<div class="row comment-con">
 						<div class ="comment-content">
@@ -65,8 +73,6 @@
 
 	<!-- <a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a> -->
 <% end %>
-
-
 
 <a href="/" class="btn btn-primary">Home</a>
 <a href="/users/<%= @user.id %>/posts" class="btn btn-primary">Back to All Posts</a>

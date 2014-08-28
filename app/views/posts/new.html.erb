@@ -1,26 +1,26 @@
 <div class="container">
-	<h1>Posts#new</h1>
-	<p>Find me in app/views/posts/new.html.erb</p>
 
+<div class="jumbotron text-center">
 
-	<h1>Create a New Post</h1>
+	<h1>New Post</h1>
 
 	<div class="row">
 
 	<%= form_for [@user, @posts] do |f| %>
-		<%= f.text_field :title, placeholder: "Title" %><br>
+		<%= f.text_field :title, placeholder: "Title", class: "form-control" %><br>
 		
-		<%= text_field_tag :tags, nil, placeholder: "Enter tags" %><br>
+		<%= text_field_tag :tags, nil, placeholder: "Enter tags", class: "form-control" %><br>
 
-		<%= f.text_area :body, placeholder: "Body" %><br>
+		<%= f.text_area :body, placeholder: "Body", class: "form-control" %><br>
 
-		<%= f.submit "Save" %>
+		<%= f.submit "Save", class: "btn btn-info" %>
 
 	<% end %>
 
 		
-	<a href="/users/<%= @posts.user_id %>/posts">Go Back</a>
+	<a href="/users/<%= @posts.user_id %>/posts" class="btn btn-primary">Go Back</a>
 
+</div>
 	</div> <!-- Row close -->
 
 
