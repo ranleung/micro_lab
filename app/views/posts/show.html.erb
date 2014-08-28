@@ -1,8 +1,6 @@
 
 <div class="container text-center">
 
-	<h1>Posts#show</h1>
-	<p>Find me in app/views/posts/show.html.erb</p>
 
 
 
@@ -21,15 +19,16 @@
 		<a href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" class="btn btn-primary">Edit</a>
 	<% end %>
 
-
+<% if session[:user_id] == @user.id %>
 	<h2>Comments:</h2>
+	<div class="comments">
 	<div class="row comment-con">
 		<div class ="comment-content">
 			<% @comments.each do |comment| %>
 
 			<p><%= comment.content %></p>
 		</div>
-		<button class="comment btn" data-comment-id="<%=comment.id %>">Reply</button>
+		<button class="comment-btn btn" data-comment-id="<%=comment.id %>">Reply</button>
 
 	</div>
 	<%comment.comments.each do |sub_comment| %>
@@ -42,9 +41,10 @@
 
 </div>
 
+</div>
 <div class ="row cust-con">
 	<div>
-		<%= form_for [@comment,] do |f| %>
+		<%= form_for [@post, @comment] do |f| %>
 		<div class="form-group">
 			<%= f.text_area :content, class: "form-control",
 			placeholder: "Comment here" %>
@@ -57,8 +57,8 @@
 </div>
 
 
-<% if session[:user_id] == @user.id %>
-	<a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a>
+
+	<!-- <a href="/posts/<%= @post.id %>/comments/new" class="btn btn-primary">Add Comment</a> -->
 <% end %>
 
 

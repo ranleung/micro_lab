@@ -23,7 +23,12 @@ class CommentsController < ApplicationController
   end
 
   def show
-
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+    post_id = params[:id]
+    @post = @user.posts.find(params[:id])
+    @comments = @post.comments.all
+    @comment = @post.comments.new
   end
 
   def destroy

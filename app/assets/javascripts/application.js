@@ -20,7 +20,7 @@ $(document).on("ready page:load", function(){
   var $commentForm = $commentCon.find("#new_comment");
   var baseAction = $commentForm.attr("action");
   var $last;
-  $(".comments").on("click",".comment", function(event){
+  $(".comments").on("click",".comment-btn", function(event){
       $last = $last || $(this);
       $last.show();
       var commentId = this.dataset.commentId;
