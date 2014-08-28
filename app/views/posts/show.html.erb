@@ -22,9 +22,9 @@
 		<a href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" class="btn btn-primary">Edit</a>
 	<% end %>
 
-<% if session[:user_id] == @user.id %>
 
 </div>
+
 
 
 	<h2>Comments:</h2>
@@ -39,7 +39,7 @@
 						<div class = "form-group">
 						<%= f.submit class: "btn" %>
 						</div>
-					<% end %>
+
 
 				</div>
 
