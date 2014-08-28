@@ -44,3 +44,10 @@ group :development do
 	gem 'letter_opener'
 end
 
+
+
+# group :assets do
+#   gem "handlebars_assets"
+#   # more gems
+# end
+
