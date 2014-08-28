@@ -1,17 +1,16 @@
 
-
+<hr class="featurette-divider">
 <div class="container">
 
 	<div class="jumbotron">
-		<div class="row">
-			<h2>Profile</h2>
-			<img src="<%= @user.image_url%>" alt="head shot" height="200" width="200">
-				<h3><%= @user.first_name %></h3>
-				<p><%= @user.last_name %></p>
+		<div class="row text-center">
+			<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+			<img src="<%= @user.image_url%>" alt="head shot" height="200" width="200" class="img-circle">
 				<p><%= @user.email%></p>
+		</div>
 
-
-				<p><%= button_to 'about/contact',user_pages_path(@user), method: :get %> </p>
+			<div class="row text-right">
+				<p><%= button_to 'about/contact',user_pages_path(@user), method: :get, class: "btn btn-primary" %> </p>
 
 
 				<% if session[:user_id] == @user.id %>
@@ -20,16 +19,14 @@
 				<% end%>
 
 
-		</div>
-
-
 
 
 
 		<!-- need to update hardcoded post#id -> posts/:id so that each post, you can add a comment; or add comment on each post show page-->
-		<button><a href="/users/<%=@user.id%>/posts">Click here to view my Posts</a></button><br>
+		<p><a href="/users/<%=@user.id%>/posts" class="btn btn-primary">Click here to view my Posts</a></p>
 
-		<a href="/">Go back to All Posts Page(site index)</a>
+		<a href="/" class="btn btn-primary">Go back to All Posts Page(site index)</a>
+	</div>
 
 
 	</div>

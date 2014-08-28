@@ -3,33 +3,45 @@
 <div class="container">
 
 
-
+<div class= "jumbotron text-center	">
 	<h1>Create a New User </h1>
 
 	<div class="row">
-
+	<div class="form">
 		<%= form_for @user do |f| %>
+		 <div class="form-group">
 			<p>First Name:
 			<%= f.text_field :first_name, placeholder: "firstname" %></p><br>
+			</div>
+		 <div class="form-group">
 			<p>Last Name:
 			<%= f.text_field :last_name, placeholder: "lastname" %></p><br>
+		</div>
+		 <div class="form-group">
 			<p>Email:
 			<%= email_field :user, :email, placeholder: "email" %></p><br>
 			<p>Confirm Email:
 			<%= email_field :user, :email, placeholder: "email" %>
 			</p>
+		</div>
+		 <div class="form-group">
 			<p>Password:
 			<%= f.password_field :password, placeholder: "password" %>
 			</p>
 			<p>Confirm Password:
 			<%= f.password_field :password_confirmation, placeholder: "password" %>
 			</p>
+		</div>
+		 <div class="form-group">
 			<p>Image Url:
 			<%= f.text_field :image_url, placeholder: "img url" %></p><br>
-			<%= f.submit "Save"%>
+			<%= f.submit "Save", class: "btn btn-primary"%>
+		</div>
 		<% end %>
+	</div>
 
 		<a href="/">Go Back to Home</a>
 
 	</div>
+</div>
 </div>

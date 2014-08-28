@@ -1,5 +1,6 @@
 <div class="container">
 
+<div class="jumbotron text-center">
 	<h1>About Me/Contact:</h1>
 
 
@@ -11,22 +12,23 @@
 
 		<% if @pages != nil %>
 	<% @pages.each do |page| %>
-		<a href="/users/<%= @user.id %>/pages/<%= page.id %>"> <%= page.name %> </a><br>
+		<h4><a href="/users/<%= @user.id %>/pages/<%= page.id %>"> <%= page.name %> </a></h4><br>
 		<% end %>
 	<% end %>
 
 	<% if session[:user_id] == @user.id %>
-		<button>
-			<a href="/users/<%=@user.id%>/pages/new">Create New Page</a>
-		</button>	
+		
+			<a href="/users/<%=@user.id%>/pages/new" class="btn btn-primary">Create New Page</a>
+		
 	<% end %>
 
-	<button>
-		<a href="/users/<%=@user.id%>">Go Back</a>
-	</button>
+	
+		<a href="/users/<%=@user.id%>" class="btn btn-primary">Go Back</a>
+	
 
-	<button>
-		<a href="/">Go to Micro Blog Home</a>
-	</button>
+	
+		<a href="/" class="btn btn-primary">Go to Micro Blog Home</a>
+	
+</div>
 
 </div>
