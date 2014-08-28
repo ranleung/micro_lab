@@ -1,33 +1,30 @@
 <div class="container text-center">
-	<h1>Tags#show</h1>
-	<p>Find me in app/views/tags/show.html.erb</p>
 	
-	<p>the show will display all the posts associated to a tag for a `user</p>
---------------------------------------------------
-
+	<div class="jumbotron">
 
 	<% @tags.posts.each do |post| %>
-		<h2><a href="/users/<%=post.user.id %>/posts/<%= post.id %>"><%= post.title %></a> </h2>
+		<h1><a href="/users/<%=post.user.id %>/posts/<%= post.id %>"><%= post.title %></a> </h1>
+		<h5><%= post.created_at.to_formatted_s(:long) %></h5>
 
-		<p>Posted By: <a href="/users/<%= post.user.id %>"><%= post.user.first_name %> <%= post.user.last_name %> </a></p>
 
-		<p>
+		<h5>
 			<% post.tags.each do |tag| %>
 				 <a href="/users/<%= post.user.id %>/tags/<%= tag.id %>">#<%= tag.name %></a>	
 			<% end %>	
-		</p>
+		</h5>
 
 
 		<p><%= post.body %></p>
 
-		<p>Created On:  <%= post.created_at.to_formatted_s(:long) %></p>
 
 		<% if post.comments.length > 0 %>
-      <p><a href="/users/<%= post.user.id %>/posts/<%= post.id %>">(<%= post.comments.length %>) Comments</a></p>
+      <h2><a href="/users/<%= post.user.id %>/posts/<%= post.id %>">(<%= post.comments.length %>) Comments</a></h2>
     <% end %>
 
+		<h4>Posted By: <a href="/users/<%= post.user.id %>"><%= post.user.first_name %> <%= post.user.last_name %> </a></h4>
 	<% end %>
 
+</div>
 
 
 
