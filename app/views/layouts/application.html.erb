@@ -23,17 +23,18 @@
 		<% else %>
 		<li><a href="/users/<%= session[:user_id] %>/posts/new">New Post</a></li>
 		<li><a href="/logout">Log Out</a></li>
-		<% flash.each do |k,v| %>
-			<h2 id="<% k %>"><%= v %></h2>
-		<% end %>
 	<% end %>
 </ul>
 </div>
 </nav>
+	<div class="row text-center">
+		<% flash.each do |k,v| %>
+			<h2 id="<% k %>"><%= v %></h2>
+		<% end %>
+	</div>
 
 <%= yield %>
 
-<%= params.inspect %>
 
 </body>
 </html>

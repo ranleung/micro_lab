@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def create
 
     find_user_id
-
+    if session[:user_id] == @user.id
     new_post = params[:post].permit(:title, :body)
     @post = find_user_id.posts.new(new_post)
 
@@ -45,6 +45,9 @@ class PostsController < ApplicationController
       flash.now[:notice] = "Try again"
       render action: 'new'
     end
+  else
+    redirect_to '/'
+  end
   end
 
     # redirect_to find_user_id

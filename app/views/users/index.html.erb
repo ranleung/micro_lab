@@ -34,10 +34,19 @@
 
 
 
+
 <a href="javascript:void(0);" id="alltags" class="btn btn-primary">ALL TAGS!</a>
 
 
 
 
 
+
+
+
+
 </div>
+<h4>All Users: </h4>
+	<% @users.each do |user| %>
+		<h5><a href="/users/<%= user.id %>"><%= user.first_name %></a></h5>
+	<% end %>

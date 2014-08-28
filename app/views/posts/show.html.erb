@@ -2,12 +2,10 @@
 <div class="container text-center">
 
 <div class="jumbotron">
-	<% flash.each do |k,v| %>
-	<h2 id="<% k %>"><%= v %></h2>
-	<% end %>
 
 
 	<h1><%= @post.title %></h1>
+
 	<p>
 		<% @post.tags.each do |tag| %>
 			<a href="/users/<%= @post.user.id %>/tags/<%= tag[:id] %>">#<%= tag.name %></a>
