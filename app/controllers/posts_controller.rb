@@ -46,11 +46,9 @@ class PostsController < ApplicationController
       render action: 'new'
     end
   else
-    redirect_to '/'
+    render plain: "DONT HACK ME"
   end
   end
-
-    # redirect_to find_user_id
 
 
   def edit
