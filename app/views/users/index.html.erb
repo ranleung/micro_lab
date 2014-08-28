@@ -11,6 +11,10 @@
 
 <div id="tagData" style="color:green">
 
+	<% flash.each do |name,msg| %>
+		<h2 id="<%= name %>"><%= msg %></h2>
+	<% end %>
+
 
 
 	<div class="jumbotron">

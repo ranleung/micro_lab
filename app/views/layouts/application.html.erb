@@ -17,14 +17,11 @@
 	<li class="active"><a href="javascript:void(0); id="alltags"">ALL TAGS!</a></li>
 
 
-	<% flash.each do |name,msg| %>
-		<h2 id="<%= name %>"><%= msg %></h2>
-	<% end %>
-
 	<% if session[:user_id] == nil %>
 		<li><a href="/login">Log In</a></li>
 		<li><a href="users/new">Create New User</a></li>
 		<% else %>
+		<li><a href="/users/<%= session[:user_id] %>/posts/new">New Post</a></li>
 		<li><a href="/logout">Log Out</a></li>
 		<% flash.each do |k,v| %>
 			<h2 id="<% k %>"><%= v %></h2>

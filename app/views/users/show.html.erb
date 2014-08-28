@@ -14,8 +14,8 @@
 
 
 				<% if session[:user_id] == @user.id %>
-					<p><%= button_to 'update',edit_user_path, method: :get %> </p>
-					<p><%= button_to 'delete', @users, method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+					<p><%= button_to 'update',edit_user_path, method: :get, class: "btn btn-primary" %> </p>
+					<p><%= button_to 'delete', @users, method: :delete, class: "btn btn-primary", data: {confirm: 'Are you sure?'} %> </p>
 				<% end%>
 
 
